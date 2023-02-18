@@ -35,5 +35,17 @@ Perfil: {{ $user->username }}
     
     </div>
 </div>
+
+
+
+<div class="grid grid-cols-3 gap-4">
+    @foreach ($posts as $post)
+        <div class="bg-gray-100 p-2">
+            <a href="">
+                <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen Post {{ $post->titulo }}">
+            </a>
+        </div>
+    @endforeach
+</div>
     
 @endsection

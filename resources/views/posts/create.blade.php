@@ -4,16 +4,22 @@
   Crea una nueva publicacion
 @endsection
 
+@push('styles')
+     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+@endpush
+
+
 @section('contenido')
 <div 
 class="md:flex md:justify-center md:gap-10 md:items-center">
 
   <div class="md:w-5/12">
 
+   
   <form action="{{ route('imagenes.store') }}" method="POST" enctype="multipart/form-data" id="dropzone" class="dropzone border-dashed border-2 w-full h-96 rounded flex flex-col justify-center items-center">
 
 
-
+    @csrf
   </form>
     
   </div>
@@ -21,9 +27,7 @@ class="md:flex md:justify-center md:gap-10 md:items-center">
 
   <div class="md:w-4/12 bg-white p-6 rounded-lg shadow-2xl">
 
-    <form 
-      method="POST" 
-      action="{{route('register')}}">
+    <form method="POST" action="{{route('posts.store')}}" novalidate>
 
       @csrf
       <div 
@@ -60,22 +64,27 @@ class="md:flex md:justify-center md:gap-10 md:items-center">
           <textarea
            id="descripcion"
            name="descripcion" 
-           placeholder="Descripcion de la publicacion" 
+           placeholder="Escribe una publicacion" 
            class="border p-3 w-full rounded-lg">
-        {{ old ('titulo')}}  
+           {{ old ('descripcion')}}  
         
-        </textarea>
-          
+        </textarea>          
 
-           @error('titulo')
+           @error('descripcion')
              <p class=" my-2 rounded-lg text-sm p-2 text-center font-bold bg-red-500">{{ $message }}</p>
          @enderror
 
+
+           <div class="mb-5">
+           <input name="imagen" value="{{old('imagen')}}"  type="hidden"/>
+
+           @error('imagen')
+          <p class=" my-2 rounded-lg text-sm p-2 text-center font-bold bg-red-500">{{ $message }}</p>
+          @enderror
+        </div>
+
       </div>
 
-     
-
-     
 
      <input 
      type="submit" 

@@ -9,9 +9,11 @@
 
         <!-- Set the title of the document -->
         <title>Instagram</title>
-
+         @stack('styles')
         <!-- Link to the CSS file -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+         <!-- Link to the js file -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
 
     <body class="bg-gray-100">
