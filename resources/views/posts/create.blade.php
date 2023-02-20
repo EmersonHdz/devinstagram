@@ -61,12 +61,8 @@ class="md:flex md:justify-center md:gap-10 md:items-center">
               Descripcion
           </label>
 
-          <textarea
-           id="descripcion"
-           name="descripcion" 
-           placeholder="Escribe una publicacion" 
-           class="border p-3 w-full rounded-lg">
-           {{ old ('descripcion')}}  
+          <textarea value=""  id="descripcion" name="descripcion" placeholder="Escribe una descripcion" class="border text-gray-500 p-3 w-full rounded-lg">
+            
         
         </textarea>          
 

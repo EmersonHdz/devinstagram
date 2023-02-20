@@ -40,7 +40,7 @@
                 </nav>
 
                 <!-- Link to the user profile and logout button -->
-                <a class="font-bold uppercase text-gray-600 text-sm" href="#">Welcome
+                <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('posts.index', auth()->user()->username)}}">Welcome
                     <span class="font-bold text-gray-600 text-sm" href="{{ route('posts.index', auth()->user()->username)}}">
                         {{ auth()->user()->name}}
                     </span>

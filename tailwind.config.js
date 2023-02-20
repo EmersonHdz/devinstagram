@@ -2,7 +2,8 @@
 module.exports = {
   content: [
     "./resources/**/*.blade.php",
-    "./resources/**/*.js"
+    "./resources/**/*.js",
+    "./vendor/laravel/framework/src/Illuminate/Pagination/resource/views/*.blade.php",
   ],
   theme: {
     extend: {},

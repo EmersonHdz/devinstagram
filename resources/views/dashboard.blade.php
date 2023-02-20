@@ -37,15 +37,33 @@ Perfil: {{ $user->username }}
 </div>
 
 
+<section class="container  mx-auto mt-10">
 
-<div class="grid grid-cols-3 gap-4">
+   <h2 class="text-4xl text-center font-black my-10">Publicaciones</h2>
+
+   @if ($posts->count())
+       
+   
+<div class="grid md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-2 place-items-center">
     @foreach ($posts as $post)
-        <div class="bg-gray-100 p-2">
-            <a href="">
+        <div class="place-items-center">
+            <a href="{{ route('posts.show', ['post' => $post, 'user' => $user ]) }}">
                 <img src="{{ asset('uploads') . '/' . $post->imagen }}" alt="Imagen Post {{ $post->titulo }}">
             </a>
+            
         </div>
     @endforeach
 </div>
+
+<div class="flex justify-center font-bold text-4xl m-5">
+    {{ $posts->links() }}
+</div>
+    
+   @else
+    <p class="text-gray-600 uppercase text-sm text-center font-bold" >No hay post</p>
+   @endif
+
+</section>
+
     
 @endsection
