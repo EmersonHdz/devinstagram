@@ -24,9 +24,12 @@
             <div class="container mx-auto flex justify-between items-center">
 
                 <!-- The heading of the page -->
-                <h1 class="text-3xl font-black">
-                    DevStagram
-                </h1>
+                <a href="{{ route('home')}}">
+                     <h1 class="text-3xl font-black">
+                         DevStagram
+                      </h1>
+               </a>
+              
 
                 <!-- Check if the user is authenticated or not -->
                 @auth
@@ -41,7 +44,7 @@
 
                 <!-- Link to the user profile and logout button -->
                 <a class="font-bold uppercase text-gray-600 text-sm" href="{{ route('posts.index', auth()->user()->username)}}">Welcome
-                    <span class="font-bold text-gray-600 text-sm" href="{{ route('posts.index', auth()->user()->username)}}">
+                    <span class="font-bold text-gray-600 text-sm">
                         {{ auth()->user()->name}}
                     </span>
                 </a>
